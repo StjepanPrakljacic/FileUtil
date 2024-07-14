@@ -14,16 +14,12 @@
 
 import os
 
-def path_validation(path: str) -> bool:
+def path_validation(path: str):
     """
     Check if a given path exists.
 
     Args:
         path (str): The path to be validated.
-
-    Returns:
-        bool: True if the path exists, False otherwise.
     """
-    if os.path.exists(path):
-        return True
-    return False
+    if not os.path.exists(path):
+        raise FileNotFoundError(f"The path '{path}' does not exist.")
